@@ -1,0 +1,82 @@
+<!DOCTYPE <!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        {% load static %}
+        <link href="{% static 'estilos.css'%}" rel="stylesheet">
+        
+       
+        <title> 
+            {% block titulo %} Actividad Ex 3 {% endblock %}
+
+        </title>
+        
+
+    </head>
+    <body class="cuerpo">
+        <header class="cabecera">
+           
+     
+            <img class="logo" src="{% static 'Django-logo.jpeg'%}" alt="">
+
+            <h1>EJERCICIOS</h1> 
+
+        </header>    
+        
+        {% block menus %}
+        <div class="menu">
+
+        <nav >
+            
+                <li>
+                    <a href="{% url 'complejos:index' %}" target="_blank">Home</a>
+                </li>
+              
+                <li>
+                    <a href="{% url 'complejos:listar-parque' %}" target="_blank">Lista de parques</a>
+                </li>
+                <li>
+                    <a href="{% url 'complejos:crear-parque' %}" target="_blank">Ingresar parques</a>
+                </li>
+                
+                <li>
+                    <a href="{% url 'complejos:listar-estadios' %}" target="_blank">Lista de estadios</a>
+                </li>
+                <li>
+                    <a href="{% url 'complejos:crear-estadios' %}" target="_blank">Ingresar estadios</a>
+                </li>
+                  
+
+        </nav>
+        </div>
+        {% endblock %}
+      
+        <div>
+            {% block contenido %}
+                <h1>Actividad Ex 3</h1>
+                <h2>Aplicar los conceptos de Django</h2>
+            {% endblock %}
+        </div>
+       
+
+     
+        <section class="portada">
+            {% block seccion %}
+                <img  src="{% static 'django.jpeg'%}" alt="">
+            
+            {% endblock %}
+        </section>
+
+      
+        <footer>
+            {% block footer %}
+                <h2>@Copyright 2022</h2>
+                <h2>Wilson Alexander Morales Picoita</h2>
+            {% endblock %}
+        </footer>
+      
+
+    </body>
+</html>

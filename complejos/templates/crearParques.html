@@ -1,0 +1,17 @@
+{% extends 'index.html' %}
+
+{% block titulo %} Ingresar nuevos registros para Parques {% endblock %}
+
+{% block contenido %}
+
+<form method="post">
+    {% csrf_token %}
+    {{formulario.as_p}}
+
+    <button class="guardar" type="submit">Guardar</button>
+
+</form>
+
+{% endblock %}
+
+{% block seccion %} {% endblock %}

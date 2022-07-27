@@ -1,0 +1,21 @@
+{% extends 'index.html' %}
+
+{% block titulo %} Ingresar nuevos registros para Parques {% endblock %}
+
+{% block contenido %}
+
+<form method="POST">
+    {% csrf_token %}
+   
+    <h1>¿Está seguro de que desea eliminar el registro de {{parques.nombre}}?</h1>
+
+    <button class="eliminar" type="submit">SÍ, deseo eliminar</button>
+    <a class="cancelar" href="{% url 'complejos:listar-parque' %}">Cancelar</a>
+
+</form>
+
+{% endblock %}
+
+{% block seccion %} {% endblock %}
+
+{% block footer %} {% endblock %}

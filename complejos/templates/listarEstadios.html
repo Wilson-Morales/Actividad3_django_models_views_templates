@@ -1,0 +1,60 @@
+{% extends 'index.html' %}
+
+{% block titulo %} Listado de Estadios {% endblock %}
+
+{% block contenido %}
+
+    <div>
+
+        <h1>Listado de Estadios</h1>
+
+        <table id="lista">
+            <thead>
+
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Capacidad</th>
+                    <th>Número de camerinos</th>
+                    <th>Número de marcadores electrónicos</th>
+                    <th>Número de cabinas de radio</th>
+                    <th>Direccion</th>
+                    <th>Acciones</th>
+                </tr>
+
+            </thead>
+      
+
+            <body>
+            
+                {% if estadios %}
+
+                    {% for e in estadios %}
+
+                        <tr>
+                            <td>{{e.id}}</td>
+                            <td>{{e.nombre}}</td>
+                            <td>{{e.capacidad}}</td>
+                            <td>{{e.num_camerinos}}</td>
+                            <td>{{e.num_marcadores}}</ts>
+                            <td>{{e.num_cabinas_radio}}</td>
+                            <td>{{e.direccion}}</td>
+                            <td>
+                                <a href="{% url 'complejos:editar-estadios/<id_estadios>' e.id %}" class="editar">Editar</a>
+                                <a href="{% url 'complejos:eliminar-estadios/<id_estadios>' e.id %}" class="eliminar">Eliminar</a>
+                            </td>
+                        </tr>
+                    {% endfor %}    
+                {% else %}
+                    <h1>No hay ningun registro que mostrar</h1>
+                {% endif %}
+            </body>
+
+        </table>
+
+    </div>
+
+{% endblock %}
+
+{% block seccion %} {% endblock %}
+{% block footer %} <h3>Estimado tutor, se puede editar así como eliminar registros (pruebelo)</h3>{% endblock %}

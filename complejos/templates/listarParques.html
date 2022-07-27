@@ -1,0 +1,58 @@
+{% extends 'index.html' %}
+
+{% block titulo %} Listado de Parques {% endblock %}
+
+{% block contenido %}
+
+    <div>
+
+        <h1>Listado de Parques</h1>
+
+        <table id="lista">
+            
+            <thead>
+
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Direccion</th>
+                    <th>Tipo de parque</th>
+                    <th>Número de monumentos</th>
+                    <th>Acciones</th>
+                </tr>
+                 
+            </thead>
+            
+            <body>
+            
+                {% if parques %}
+
+                    {% for p in parques %}
+
+                      <tr>
+                          <td>{{p.id}}</td>
+                          <td>{{p.nombre}}</td>
+                          <td>{{p.direccion}}</td>
+                          <td>{{p.tipo}}</td>
+                          <td>{{p.num_monumentos}}</td>
+                          <td>
+
+                            <a href="{% url 'complejos:editar-parque/<id_parque>' p.id %}" class="editar">Editar</a>
+                            <a href="{% url 'complejos:eliminar-parque/<id_parque>' p.id %}" class="eliminar">Eliminar</a>
+
+                          </td>
+                      </tr>
+                    {% endfor %}     
+                {% else %}
+                      <h1>No hay ningun registro que mostrar</h1>
+                {% endif %}
+            </body>
+           
+           </table>
+
+    </div>
+
+{% endblock %}
+
+{% block seccion %} {% endblock %}
+{% block footer %} <h3>Estimado tutor, se puede editar así como eliminar registros (pruebelo)</h3>{% endblock %}
